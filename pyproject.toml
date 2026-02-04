@@ -1,0 +1,38 @@
+# =============================================================================
+# PROJECT CONFIGURATION FILE
+# =============================================================================
+# This file tells Python how to install our project as a package.
+# It allows us to use imports like "from twbx import extract_workbook"
+# from anywhere, not just from inside the project folder.
+# =============================================================================
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tab_to_ts"
+version = "0.1.0"
+description = "Tableau to Muze Visualization Converter"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
+dependencies = [
+    "lxml>=5.1.0",
+    "pydantic>=2.5.3",
+    "openai>=1.12.0",
+    "streamlit>=1.31.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+]
+
+# This tells setuptools where to find our Python packages
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["twbx*", "viz_model*", "translators*", "muze*", "ui*"]

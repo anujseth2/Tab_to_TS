@@ -1,0 +1,19 @@
+# Tab_to_TS - Tableau to Muze Converter
+# Python 3.9+
+
+# Core dependencies
+lxml==5.1.0                  # XML parsing
+pydantic==2.5.3              # Data validation and schemas
+
+# LLM integration
+openai==1.12.0               # OpenAI API for code generation
+
+# UI
+streamlit==1.31.0            # Web interface
+
+# Testing
+pytest==8.0.0                # Testing framework
+pytest-cov==4.1.0            # Coverage reporting
+
+# Utilities
+python-dotenv==1.0.1         # Environment variable management
