@@ -348,13 +348,14 @@ class MuzeCodeOutput:
             height: {height}px !important;
             min-height: {height}px !important;
             background: #fafafa;
-            overflow: hidden;
+            overflow: visible;
         }}
         #chart-container {{
-            width: 100%;
-            height: {height}px !important;
-            min-height: {height}px !important;
-            padding: 16px;
+            width: calc(100% - 40px);
+            height: calc({height}px - 40px) !important;
+            min-height: calc({height}px - 40px) !important;
+            padding: 20px;
+            margin: 0;
             box-sizing: border-box;
             background: white;
         }}

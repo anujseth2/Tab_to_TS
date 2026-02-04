@@ -400,7 +400,7 @@ if uploaded_file is not None:
                                     "</body>", 
                                     f"{unique_marker}</body>"
                                 )
-                                components.html(preview_html_with_marker, height=preview_height + 50, scrolling=False)
+                                components.html(preview_html_with_marker, height=preview_height + 100, scrolling=True)
                             except Exception as e:
                                 st.error(f"Preview error: {str(e)}")
                                 st.info("The chart may still work when the code is used in Muze Studio.")
