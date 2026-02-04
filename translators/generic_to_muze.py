@@ -353,8 +353,9 @@ class MuzeCodeOutput:
         }}
         #chart-container {{
             width: 100%;
-            height: {height}px;
-            padding: 10px 20px 30px 10px;
+            min-height: {height}px;
+            padding: 10px 40px 60px 10px;
+            margin-bottom: 40px;
             background: white;
         }}
         .loading {{
