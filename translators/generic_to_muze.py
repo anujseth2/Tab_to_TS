@@ -345,18 +345,25 @@ class MuzeCodeOutput:
             box-sizing: border-box;
         }}
         html, body {{
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f8fafc;
             margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            background: #fafafa;
+            padding: 20px;
+            color: #334155;
         }}
+        /* Chart container card */
+        .chart-container {{
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            padding: 20px;
+        }}
+        /* Chart sizing - responsive */
         #chart-container {{
             width: 100%;
-            min-height: {height}px;
-            padding: 10px 40px 60px 10px;
-            margin-bottom: 40px;
-            background: white;
+            height: 60vh;
+            min-height: 400px;
+            max-height: {height}px;
         }}
         .loading {{
             display: flex;
@@ -364,7 +371,6 @@ class MuzeCodeOutput:
             justify-content: center;
             height: 100%;
             color: #666;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }}
         .error {{
             color: #dc3545;
@@ -374,8 +380,10 @@ class MuzeCodeOutput:
     </style>
 </head>
 <body>
-    <div id="chart-container">
-        <div class="loading" id="loading-msg">Loading Muze visualization...</div>
+    <div class="chart-container">
+        <div id="chart-container">
+            <div class="loading" id="loading-msg">Loading Muze visualization...</div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@chartshq/muze@2.0.0/dist/muze.js"></script>
     <script>
@@ -585,9 +593,8 @@ def _build_llm_prompt(
 4. Use the EXACT field names from the schema
 5. Add a text layer for data labels if Show Labels is true
 6. For line charts, add point markers AND text labels for values
-7. Mount to '#chart-container'
+7. Mount to '#chart-container' (chart will auto-size to container)
 8. Include a loading message hide function
-9. Set explicit chart dimensions: .width(800).height(450)
 
 ## Output Format
 Return ONLY the JavaScript code. No markdown, no explanations.
@@ -766,8 +773,6 @@ def _generate_with_template(
     code += f"""
             .layers({layers_str})
             .title('{title}')
-            .width(800)
-            .height(450)
             .mount('#chart-container');
     }} catch (error) {{
         console.error('Muze error:', error);
