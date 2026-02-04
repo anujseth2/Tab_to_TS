@@ -587,6 +587,7 @@ def _build_llm_prompt(
 6. For line charts, add point markers AND text labels for values
 7. Mount to '#chart-container'
 8. Include a loading message hide function
+9. Set explicit chart dimensions: .width(800).height(450)
 
 ## Output Format
 Return ONLY the JavaScript code. No markdown, no explanations.
@@ -765,6 +766,8 @@ def _generate_with_template(
     code += f"""
             .layers({layers_str})
             .title('{title}')
+            .width(800)
+            .height(450)
             .mount('#chart-container');
     }} catch (error) {{
         console.error('Muze error:', error);
