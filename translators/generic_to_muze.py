@@ -341,30 +341,21 @@ class MuzeCodeOutput:
     <title>Muze Visualization Preview</title>
     <link href="https://cdn.jsdelivr.net/npm/@chartshq/muze@2.0.0/dist/muze.css" rel="stylesheet">
     <style>
+        * {{
+            box-sizing: border-box;
+        }}
         html, body {{
             margin: 0;
             padding: 0;
             width: 100%;
-            height: {height}px !important;
-            min-height: {height}px !important;
+            height: 100%;
             background: #fafafa;
-            overflow: visible;
         }}
         #chart-container {{
-            width: calc(100% - 40px);
-            height: calc({height}px - 40px) !important;
-            min-height: calc({height}px - 40px) !important;
-            padding: 20px;
-            margin: 0;
-            box-sizing: border-box;
+            width: 100%;
+            height: {height}px;
+            padding: 10px 20px 30px 10px;
             background: white;
-        }}
-        /* Force Muze canvas to fill container */
-        .muze-canvas-container,
-        .muze-canvas-container > div,
-        .muze-layout-container {{
-            width: 100% !important;
-            height: 100% !important;
         }}
         .loading {{
             display: flex;

@@ -213,9 +213,9 @@ with st.sidebar:
     st.markdown("### Display")
     chart_height = st.slider(
         "Chart Height (px)",
-        min_value=300,
-        max_value=800,
-        value=500,
+        min_value=400,
+        max_value=1000,
+        value=600,
         step=50
     )
     
@@ -400,7 +400,7 @@ if uploaded_file is not None:
                                     "</body>", 
                                     f"{unique_marker}</body>"
                                 )
-                                components.html(preview_html_with_marker, height=preview_height + 100, scrolling=True)
+                                components.html(preview_html_with_marker, height=preview_height + 150, scrolling=True)
                             except Exception as e:
                                 st.error(f"Preview error: {str(e)}")
                                 st.info("The chart may still work when the code is used in Muze Studio.")
